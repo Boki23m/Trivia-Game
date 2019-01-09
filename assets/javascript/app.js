@@ -54,10 +54,10 @@ var questions = [{
     correctAnswer: "HTTP"
 }];
 
-
 var correct = 0;
 var incorrect = 0;
 var counter = 60;
+
 function countdown() {
     counter--;
     $('#counter-number').html(counter);
@@ -67,6 +67,7 @@ function countdown() {
         done();
     }
 }
+
 function start() {
     timer = setInterval(countdown(), 1000);
 
@@ -83,79 +84,18 @@ function start() {
 
     panel.append('<button id="done">Done</button>');
 }
+
 function done() {
+    for (var i = 0; i < 10; i++) {
+        $.each($("input[name='question-" + i + "']:checked"), function () {
+            if ($(this).val() == questions[i].correctAnswer) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        });
+    }
 
-
-    $.each($("input[name='question-0']:checked"), function () {
-        if ($(this).val() == questions[0].correctAnswer) {
-            correct++;
-        } else {
-            incorrect++;
-        }
-    });
-    $.each($("input[name='question-1']:checked"), function () {
-        if ($(this).val() == questions[1].correctAnswer) {
-            correct++;
-        } else {
-            incorrect++;
-        }
-    });
-    $.each($("input[name='question-2']:checked"), function () {
-        if ($(this).val() == questions[2].correctAnswer) {
-            correct++;
-        } else {
-            incorrect++;
-        }
-    });
-    $.each($("input[name='question-3']:checked"), function () {
-        if ($(this).val() == questions[3].correctAnswer) {
-            correct++;
-        } else {
-            incorrect++;
-        }
-    });
-    $.each($("input[name='question-4']:checked"), function () {
-        if ($(this).val() == questions[4].correctAnswer) {
-            correct++;
-        } else {
-            incorrect++;
-        }
-    });
-    $.each($("input[name='question-5']:checked"), function () {
-        if ($(this).val() == questions[5].correctAnswer) {
-            correct++;
-        } else {
-            incorrect++;
-        }
-    });
-    $.each($("input[name='question-6']:checked"), function () {
-        if ($(this).val() == questions[6].correctAnswer) {
-            correct++;
-        } else {
-            incorrect++;
-        }
-    });
-    $.each($("input[name='question-7']:checked"), function () {
-        if ($(this).val() == questions[7].correctAnswer) {
-            correct++;
-        } else {
-            incorrect++;
-        }
-    });
-    $.each($("input[name='question-8']:checked"), function () {
-        if ($(this).val() == questions[8].correctAnswer) {
-            correct++;
-        } else {
-            incorrect++;
-        }
-    });
-    $.each($("input[name='question-9']:checked"), function () {
-        if ($(this).val() == questions[9].correctAnswer) {
-            correct++;
-        } else {
-            incorrect++;
-        }
-    });
 
     this.result();
 }
@@ -170,4 +110,3 @@ function result() {
     panel.append('<h3> Incorrect Answers: ' + this.incorrect + '</h3>');
     panel.append('<h3> Unanswered: ' + (questions.length - (this.incorrect + this.correct)) + '</h3>');
 }
-
