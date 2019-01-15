@@ -60,7 +60,6 @@ var counter = 60;
 
 function countdown() {
     counter--;
-    console.log(counter);
     $('#counter-number').html(counter);
 
     if (counter === 0) {
