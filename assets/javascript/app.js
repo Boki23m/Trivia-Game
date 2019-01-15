@@ -60,6 +60,7 @@ var counter = 60;
 
 function countdown() {
     counter--;
+    console.log(counter);
     $('#counter-number').html(counter);
 
     if (counter === 0) {
@@ -69,7 +70,8 @@ function countdown() {
 }
 
 function start() {
-    timer = setInterval(countdown(), 1000);
+
+    timer = setInterval(countdown, 1000);
 
     $('#subwrapper').prepend('<h2>Time Remaining: <span id="counter-number">60</span> Seconds</h2>');
     $('#start').remove();
@@ -95,7 +97,6 @@ function done() {
             }
         });
     }
-
 
     this.result();
 }
