@@ -7,4 +7,4 @@ Trivia game using JavaScript for the logic and jQuery to manipulate HTML.
 
 * The game ends when the time runs out. The page will reveal the number of questions that players answer correctly and incorrectly.
 
-Link to GitHub Pages: https://boki23m.github.io/TriviaGame/
+Link to GitHub Pages: https://boki23m.github.io/Trivia-Game/
